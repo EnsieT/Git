@@ -1,21 +1,30 @@
-# Git Hub
+# EnsieT Hub
 
-A simple GitHub Pages hub for selected EnsieT kids and games projects.
+A central GitHub Pages hub for tracking and previewing all EnsieT public projects and repositories.
 
-## Repository details
+- **GitHub profile:** [EnsieT](https://github.com/EnsieT)
+- **Hub source repo:** [EnsieT/Git](https://github.com/EnsieT/Git)
+- **Deployed hub page:** [https://ensiet.github.io/Git/](https://ensiet.github.io/Git/)
 
-- **GitHub repo:** [EnsieT/Git](https://github.com/EnsieT/Git)
-- **Deployed page:** [https://ensiet.github.io/Git/](https://ensiet.github.io/Git/)
+## EnsieT Public Repositories
 
-## Linked projects
-
-| Project | Description | GitHub Repo | Deployed Page |
-|---------|-------------|-------------|---------------|
-| Classic Games | Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more. | [EnsieT/ClassicGames](https://github.com/EnsieT/ClassicGames) | [https://ensiet.github.io/ClassicGames/](https://ensiet.github.io/ClassicGames/) |
-| KidsFunActivityGPT5.4 | Little Thinkers Playhouse: colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and worksheet support. | [EnsieT/KidsFunActivityGPT5.4](https://github.com/EnsieT/KidsFunActivityGPT5.4) | [https://ensiet.github.io/KidsFunActivityGPT5.4/](https://ensiet.github.io/KidsFunActivityGPT5.4/) |
-| kidsEduVSCode5.3Codex | KidsFun India: static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional narration. | [EnsieT/kidsEduVSCode5.3Codex](https://github.com/EnsieT/kidsEduVSCode5.3Codex) | [https://ensiet.github.io/kidsEduVSCode5.3Codex/](https://ensiet.github.io/kidsEduVSCode5.3Codex/) |
-| kids-fun-learn | A kids learning collection with multiple activities and trilingual support for English, Hindi, and Gujarati. | [EnsieT/kids-fun-learn](https://github.com/EnsieT/kids-fun-learn) | [https://ensiet.github.io/kids-fun-learn/](https://ensiet.github.io/kids-fun-learn/) |
+| Repository | Description | GitHub | Pages Deployment |
+|------------|-------------|--------|------------------|
+| BeingIndian | EnsieT project workspace. | [Source](https://github.com/EnsieT/BeingIndian) | [Live Site](https://ensiet.github.io/BeingIndian/) |
+| ClassicGames | Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more. | [Source](https://github.com/EnsieT/ClassicGames) | [Live Site](https://ensiet.github.io/ClassicGames/) |
+| GovDataChatGPTCodex | Government Data visualization and chat interface. | [Source](https://github.com/EnsieT/GovDataChatGPTCodex) | [Live Site](https://ensiet.github.io/GovDataChatGPTCodex/) |
+| GovDataCodexVSCode | Development framework for GovData components. | [Source](https://github.com/EnsieT/GovDataCodexVSCode) | [Live Site](https://ensiet.github.io/GovDataCodexVSCode/) |
+| GovDataSpacesOpus4.6 | Data operations and models for spaces. | [Source](https://github.com/EnsieT/GovDataSpacesOpus4.6) | [Live Site](https://ensiet.github.io/GovDataSpacesOpus4.6/) |
+| kids-fun-learn | Kids learning stuff. | [Source](https://github.com/EnsieT/kids-fun-learn) | [Live Site](https://ensiet.github.io/kids-fun-learn/) |
+| kids-fun-learn-antigravity | Advanced experimental builds for Kids Fun Learn. | [Source](https://github.com/EnsieT/kids-fun-learn-antigravity) | [Live Site](https://ensiet.github.io/kids-fun-learn-antigravity/) |
+| kidsEduVSCode5.3Codex | KidsFun India: static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional narration. | [Source](https://github.com/EnsieT/kidsEduVSCode5.3Codex) | [Live Site](https://ensiet.github.io/kidsEduVSCode5.3Codex/) |
+| KidsFunActivityGPT5.4 | Little Thinkers Playhouse: colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and worksheet support. | [Source](https://github.com/EnsieT/KidsFunActivityGPT5.4) | [Live Site](https://ensiet.github.io/KidsFunActivityGPT5.4/) |
+| KidsFunCursor | Cursor-driven interactive elements for Kids learning modules. | [Source](https://github.com/EnsieT/KidsFunCursor) | [Live Site](https://ensiet.github.io/KidsFunCursor/) |
+| My-Library | Personal book library with 273 books and reviews. | [Source](https://github.com/EnsieT/My-Library) | [Live Site](https://ensiet.github.io/My-Library/) |
+| Rent-a-phone | Rent-a-phone. | [Source](https://github.com/EnsieT/Rent-a-phone) | [Live Site](https://ensiet.github.io/Rent-a-phone/) |
+| SapeinsGrok | Explorations into human evolution and intellect. | [Source](https://github.com/EnsieT/SapeinsGrok) | [Live Site](https://ensiet.github.io/SapeinsGrok/) |
+| Sapiens-Supremacy | Strategic implementation related to Sapiens context. | [Source](https://github.com/EnsieT/Sapiens-Supremacy) | [Live Site](https://ensiet.github.io/Sapiens-Supremacy/) |
 
 ---
 
-This repository hosts a landing page that makes it easier to open and keep track of these live links. It also provides a central hub for navigation and previewing the above projects.
+This repository hosts a landing page that seamlessly surfaces the EnsieT organization portfolio, providing dynamic previews and entryways to all projects.
