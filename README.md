@@ -1,11 +1,11 @@
-# kidsplay
+# Git Hub
 
 A simple GitHub Pages hub for selected EnsieT kids and games projects.
 
 ## Repository details
 
-- **GitHub repo:** [EnsieT/kidsplay](https://github.com/EnsieT/kidsplay)
-- **Deployed page:** [https://ensiet.github.io/kidsplay/](https://ensiet.github.io/kidsplay/)
+- **GitHub repo:** [EnsieT/Git](https://github.com/EnsieT/Git)
+- **Deployed page:** [https://ensiet.github.io/Git/](https://ensiet.github.io/Git/)
 
 ## Linked projects
 

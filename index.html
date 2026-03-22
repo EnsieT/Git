@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KidsPlay Hub | EnsieT</title>
-  <meta name="description" content="A central hub for EnsieT kids and games projects including ClassicGames, KidsFunActivityGPT5.4, kidsEduVSCode5.3Codex, and kids-fun-learn." />
+  <title>KidsPlay Hub</title>
+  <meta name="description" content="A central hub for EnsieT kids and games projects including ClassicGames, KidsFunActivityGPT5.4, kidsEduVSCode5.3Codex, and kids-fun-learn, hosted on the Git repository." />
   <style>
     :root {
       --bg: #07111f;
@@ -22,8 +23,16 @@
       --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
@@ -37,7 +46,10 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(1200px, calc(100% - 40px));
@@ -122,8 +134,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 14px 28px;
       border-radius: 999px;
       font-size: 1.05rem;
@@ -131,14 +143,14 @@
       color: var(--text);
       backdrop-filter: blur(10px);
       transition: all var(--transition);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.4);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     }
 
     /* Grid Layout */
@@ -165,10 +177,21 @@
       animation: fadeInUp 0.8s ease-out backwards;
     }
 
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
-    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
 
     .card::before {
       content: '';
@@ -181,14 +204,25 @@
       transition: opacity var(--transition);
     }
 
-    .card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
-    .card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-3)); }
-    .card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); }
-    .card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-4), var(--accent)); }
+    .card:nth-child(1)::before {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+    }
+
+    .card:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--accent-3), var(--accent-4));
+    }
+
+    .card:nth-child(4)::before {
+      background: linear-gradient(90deg, var(--accent-4), var(--accent));
+    }
 
     .card:hover {
       transform: translateY(-8px);
-      border-color: rgba(255,255,255,0.25);
+      border-color: rgba(255, 255, 255, 0.25);
       background: var(--panel-hover);
       box-shadow: var(--shadow);
     }
@@ -220,7 +254,7 @@
       align-items: center;
       gap: 8px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       color: var(--text);
       padding: 10px 16px;
       border-radius: 12px;
@@ -232,17 +266,17 @@
     }
 
     .btn:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.3);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .btn-outline {
-      border-color: rgba(255,255,255,0.1);
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     /* Footer */
@@ -256,13 +290,27 @@
 
     /* Animations */
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Icons (Inline SVG) */
@@ -273,6 +321,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top Navigation -->
@@ -283,7 +332,7 @@
         <span class="subtitle">by EnsieT</span>
       </div>
       <div class="header-links">
-        <a href="https://github.com/EnsieT/kidsplay" target="_blank" rel="noopener noreferrer">View Repository</a>
+        <a href="https://github.com/EnsieT/Git" target="_blank" rel="noopener noreferrer">View Repository</a>
       </div>
     </div>
   </header>
@@ -292,27 +341,39 @@
     <!-- Hero Section -->
     <section class="hero">
       <h1>Welcome to KidsPlay Hub</h1>
-      <p>A central landing page to effortlessly navigate and preview EnsieT's interactive and educational games for kids.</p>
-      <a href="https://github.com/EnsieT/kidsplay" class="btn-primary" target="_blank" rel="noopener noreferrer">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      <p>A central landing page to effortlessly navigate and preview EnsieT's interactive and educational games for
+        kids.</p>
+      <a href="https://github.com/EnsieT/Git" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
         hub Repository
       </a>
     </section>
 
     <!-- Projects Grid -->
     <section class="grid">
-      
+
       <!-- Card 1: Classic Games -->
       <article class="card">
         <h2 class="card-title">Classic Games</h2>
-        <p class="card-desc">Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more.</p>
+        <p class="card-desc">Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku,
+          Jigsaw, Wordle, and more.</p>
         <div class="card-actions">
           <a href="https://ensiet.github.io/ClassicGames/" class="btn" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z" />
+            </svg>
             Play Now
           </a>
-          <a href="https://github.com/EnsieT/ClassicGames" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/EnsieT/ClassicGames" class="btn btn-outline" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -321,14 +382,23 @@
       <!-- Card 2: KidsFunActivityGPT5.4 -->
       <article class="card">
         <h2 class="card-title">Little Thinkers Playhouse</h2>
-        <p class="card-desc">Colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and worksheet support.</p>
+        <p class="card-desc">Colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and
+          worksheet support.</p>
         <div class="card-actions">
-          <a href="https://ensiet.github.io/KidsFunActivityGPT5.4/" class="btn" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+          <a href="https://ensiet.github.io/KidsFunActivityGPT5.4/" class="btn" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z" />
+            </svg>
             Play Now
           </a>
-          <a href="https://github.com/EnsieT/KidsFunActivityGPT5.4" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/EnsieT/KidsFunActivityGPT5.4" class="btn btn-outline" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -337,14 +407,23 @@
       <!-- Card 3: kidsEduVSCode5.3Codex -->
       <article class="card">
         <h2 class="card-title">KidsFun India</h2>
-        <p class="card-desc">Static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional narration.</p>
+        <p class="card-desc">Static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional
+          narration.</p>
         <div class="card-actions">
-          <a href="https://ensiet.github.io/kidsEduVSCode5.3Codex/" class="btn" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+          <a href="https://ensiet.github.io/kidsEduVSCode5.3Codex/" class="btn" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z" />
+            </svg>
             Play Now
           </a>
-          <a href="https://github.com/EnsieT/kidsEduVSCode5.3Codex" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/EnsieT/kidsEduVSCode5.3Codex" class="btn btn-outline" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -353,14 +432,22 @@
       <!-- Card 4: kids-fun-learn -->
       <article class="card">
         <h2 class="card-title">Kids Fun Learn</h2>
-        <p class="card-desc">A kids learning collection with multiple activities and trilingual support for English, Hindi, and Gujarati.</p>
+        <p class="card-desc">A kids learning collection with multiple activities and trilingual support for English,
+          Hindi, and Gujarati.</p>
         <div class="card-actions">
           <a href="https://ensiet.github.io/kids-fun-learn/" class="btn" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z" />
+            </svg>
             Play Now
           </a>
-          <a href="https://github.com/EnsieT/kids-fun-learn" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/EnsieT/kids-fun-learn" class="btn btn-outline" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
             GitHub
           </a>
         </div>
@@ -376,4 +463,5 @@
   </footer>
 
 </body>
+
 </html>
