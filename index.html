@@ -3,98 +3,377 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KidsPlay Hub</title>
-  <meta name="description" content="A simple hub for EnsieT kids and games projects." />
+  <title>KidsPlay Hub | EnsieT</title>
+  <meta name="description" content="A central hub for EnsieT kids and games projects including ClassicGames, KidsFunActivityGPT5.4, kidsEduVSCode5.3Codex, and kids-fun-learn." />
   <style>
     :root {
       --bg: #07111f;
-      --panel: rgba(12, 25, 45, 0.88);
-      --panel-2: rgba(20, 39, 68, 0.95);
+      --panel: rgba(12, 25, 45, 0.7);
+      --panel-hover: rgba(20, 39, 68, 0.95);
       --text: #eef5ff;
       --muted: #b7c7e6;
       --accent: #7dd3fc;
       --accent-2: #a78bfa;
       --accent-3: #34d399;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 24px 60px rgba(0,0,0,0.35);
+      --accent-4: #fb7185;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
       --radius: 22px;
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: Inter, Segoe UI, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(125, 211, 252, 0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 32%),
+        radial-gradient(circle at 10% 10%, rgba(125, 211, 252, 0.15), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(167, 139, 250, 0.15), transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.05), transparent 50%),
         linear-gradient(180deg, #08101c 0%, #0b1730 50%, #07111f 100%);
       min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1200px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* Topbar Navigation */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       background: rgba(6, 13, 25, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
     }
 
     .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      gap: 4px;
     }
 
-    .brand strong {
-      font-size: 1.05rem;
+    .brand .title {
+      font-size: 1.25rem;
+      font-weight: 700;
       letter-spacing: 0.02em;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .brand span,
-    .muted {
+    .brand .subtitle {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
+    .header-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color var(--transition);
+      margin-left: 20px;
+    }
+
+    .header-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* Primary Repo Button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-    }
-
-    .nav a,
-    .button,
-    button {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      padding: 10px 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 14px 28px;
       border-radius: 999px;
-      font: inherit;
-      cursor: pointer;
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      backdrop-filter: blur(10px);
+      transition: all var(--transition);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
 
-    .nav a:hover,
-    .button:hover,
-    button:hover {
-      transform: translateY(-1px);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      padding-bottom: 100px;
+    }
+
+    /* Project Cards */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all var(--transition);
+      animation: fadeInUp 0.8s ease-out backwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-3)); }
+    .card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); }
+    .card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-4), var(--accent)); }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.25);
+      background: var(--panel-hover);
+      box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-align: center;
+    }
+
+    .btn:hover {
       background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Icons (Inline SVG) */
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="title">KidsPlay Hub</span>
+        <span class="subtitle">by EnsieT</span>
+      </div>
+      <div class="header-links">
+        <a href="https://github.com/EnsieT/kidsplay" target="_blank" rel="noopener noreferrer">View Repository</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to KidsPlay Hub</h1>
+      <p>A central landing page to effortlessly navigate and preview EnsieT's interactive and educational games for kids.</p>
+      <a href="https://github.com/EnsieT/kidsplay" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        hub Repository
+      </a>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="grid">
+      
+      <!-- Card 1: Classic Games -->
+      <article class="card">
+        <h2 class="card-title">Classic Games</h2>
+        <p class="card-desc">Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more.</p>
+        <div class="card-actions">
+          <a href="https://ensiet.github.io/ClassicGames/" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            Play Now
+          </a>
+          <a href="https://github.com/EnsieT/ClassicGames" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: KidsFunActivityGPT5.4 -->
+      <article class="card">
+        <h2 class="card-title">Little Thinkers Playhouse</h2>
+        <p class="card-desc">Colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and worksheet support.</p>
+        <div class="card-actions">
+          <a href="https://ensiet.github.io/KidsFunActivityGPT5.4/" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            Play Now
+          </a>
+          <a href="https://github.com/EnsieT/KidsFunActivityGPT5.4" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: kidsEduVSCode5.3Codex -->
+      <article class="card">
+        <h2 class="card-title">KidsFun India</h2>
+        <p class="card-desc">Static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional narration.</p>
+        <div class="card-actions">
+          <a href="https://ensiet.github.io/kidsEduVSCode5.3Codex/" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            Play Now
+          </a>
+          <a href="https://github.com/EnsieT/kidsEduVSCode5.3Codex" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4: kids-fun-learn -->
+      <article class="card">
+        <h2 class="card-title">Kids Fun Learn</h2>
+        <p class="card-desc">A kids learning collection with multiple activities and trilingual support for English, Hindi, and Gujarati.</p>
+        <div class="card-actions">
+          <a href="https://ensiet.github.io/kids-fun-learn/" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            Play Now
+          </a>
+          <a href="https://github.com/EnsieT/kids-fun-learn" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 EnsieT. All KidsPlay projects and hubs.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
