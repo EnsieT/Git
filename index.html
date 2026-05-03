@@ -16,6 +16,7 @@
       --accent-2: #a78bfa;
       --accent-3: #34d399;
       --accent-4: #fb7185;
+      --accent-5: #fbbf24;
       --border: rgba(255, 255, 255, 0.12);
       --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
       --radius: 22px;
@@ -97,7 +98,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 100px 0 80px;
+      padding: 100px 0 60px;
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
@@ -142,32 +143,71 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.4);
     }
 
+    /* Category Filter Bar */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 24px 0 12px;
+      animation: fadeInDown 0.6s ease-out 0.2s backwards;
+    }
+
+    .filter-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 6px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.25);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(167, 139, 250, 0.2));
+      border-color: rgba(125, 211, 252, 0.5);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(125, 211, 252, 0.15);
+    }
+
+    .repo-count {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .repo-count span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
     /* Grid Layout */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 32px;
       padding-bottom: 100px;
-    }
-
-    .repo-sections {
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-      padding-bottom: 100px;
-    }
-
-    .category-title {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: var(--accent);
-      letter-spacing: 0.01em;
-    }
-
-    .category-subtitle {
-      color: var(--muted);
-      margin-bottom: 20px;
-      font-size: 0.95rem;
+      padding-top: 20px;
     }
 
     /* Project Cards */
@@ -183,7 +223,11 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       transition: all var(--transition);
-      animation: fadeInUp 0.8s ease-out backwards;
+      animation: fadeInUp 0.5s ease-out backwards;
+    }
+
+    .card.hidden {
+      display: none;
     }
 
     .card::before {
@@ -197,10 +241,12 @@
       transition: opacity var(--transition);
     }
 
-    .card:nth-child(4n+1)::before { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
-    .card:nth-child(4n+2)::before { background: linear-gradient(90deg, var(--accent-2), var(--accent-3)); }
-    .card:nth-child(4n+3)::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); }
-    .card:nth-child(4n+4)::before { background: linear-gradient(90deg, var(--accent-4), var(--accent)); }
+    /* Category-based top-bar colors */
+    .card[data-category="ai"]::before { background: linear-gradient(90deg, var(--accent-2), var(--accent)); }
+    .card[data-category="kids"]::before { background: linear-gradient(90deg, var(--accent-3), var(--accent-5)); }
+    .card[data-category="games"]::before { background: linear-gradient(90deg, var(--accent-4), var(--accent-5)); }
+    .card[data-category="knowledge"]::before { background: linear-gradient(90deg, var(--accent), var(--accent-3)); }
+    .card[data-category="utility"]::before { background: linear-gradient(90deg, var(--muted), var(--accent-2)); }
 
     .card:hover {
       transform: translateY(-8px);
@@ -209,11 +255,59 @@
       box-shadow: var(--shadow);
     }
 
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
     .card-title {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 12px;
       color: #fff;
+    }
+
+    .card-badge {
+      flex-shrink: 0;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .badge-ai {
+      background: rgba(167, 139, 250, 0.18);
+      color: #c4b5fd;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .badge-kids {
+      background: rgba(52, 211, 153, 0.18);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .badge-games {
+      background: rgba(251, 113, 133, 0.18);
+      color: #fda4af;
+      border: 1px solid rgba(251, 113, 133, 0.3);
+    }
+
+    .badge-knowledge {
+      background: rgba(125, 211, 252, 0.18);
+      color: #7dd3fc;
+      border: 1px solid rgba(125, 211, 252, 0.3);
+    }
+
+    .badge-utility {
+      background: rgba(183, 199, 230, 0.12);
+      color: var(--muted);
+      border: 1px solid rgba(183, 199, 230, 0.2);
     }
 
     .card-desc {
@@ -261,6 +355,20 @@
       border-color: rgba(255,255,255,0.2);
     }
 
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      display: none;
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
@@ -286,6 +394,22 @@
       width: 18px;
       height: 18px;
       fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .filter-bar {
+        gap: 8px;
+      }
+      .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.82rem;
+      }
+      .repo-count {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 4px;
+      }
     }
   </style>
 </head>
@@ -315,9 +439,22 @@
       </a>
     </section>
 
+    <!-- Category Filter -->
+    <nav class="filter-bar" id="filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">🤖 AI & Learning</button>
+      <button class="filter-btn" data-filter="kids">🧒 Kids Education</button>
+      <button class="filter-btn" data-filter="games">🎮 Games</button>
+      <button class="filter-btn" data-filter="knowledge">📚 Knowledge & Culture</button>
+      <button class="filter-btn" data-filter="utility">⚙️ Utilities</button>
+      <span class="repo-count" id="repo-count"></span>
+    </nav>
+
     <!-- Projects Grid -->
-    <section class="repo-sections" id="repo-sections">
+    <section class="grid" id="repo-grid">
       <!-- Repositories will be populated here -->
+      <div class="empty-state" id="empty-state">No repositories found in this category.</div>
     </section>
   </main>
 
@@ -328,88 +465,102 @@
   </footer>
 
   <script>
-    const repositoryCategories = [
-      {
-        name: "Kids Education & Learning",
-        subtitle: "Prioritized with KidsEDUGAS and related kid-focused learning repos.",
-        repositories: [
-          { name: "KidsEDUGAS", description: "Kids education repository focused on structured learning and activities.", url: "https://github.com/EnsieT/KidsEDUGAS", pages: "https://ensiet.github.io/KidsEDUGAS/" },
-          { name: "kids-fun-learn", description: "Kids learning stuff.", url: "https://github.com/EnsieT/kids-fun-learn", pages: "https://ensiet.github.io/kids-fun-learn/" },
-          { name: "kids-fun-learn-antigravity", description: "Advanced experimental builds for Kids Fun Learn.", url: "https://github.com/EnsieT/kids-fun-learn-antigravity", pages: "https://ensiet.github.io/kids-fun-learn-antigravity/" },
-          { name: "kidsEduVSCode5.3Codex", description: "KidsFun India: static educational pages for ages 4, 5, and 6 with games, progress, sound, and optional narration.", url: "https://github.com/EnsieT/kidsEduVSCode5.3Codex", pages: "https://ensiet.github.io/kidsEduVSCode5.3Codex/" },
-          { name: "KidsFunActivityGPT5.4", description: "Little Thinkers Playhouse: colorful learning pages for ages 4 to 6 with activities, multilingual prompts, and worksheet support.", url: "https://github.com/EnsieT/KidsFunActivityGPT5.4", pages: "https://ensiet.github.io/KidsFunActivityGPT5.4/" },
-          { name: "KidsFunCursor", description: "Cursor-driven interactive elements for Kids learning modules.", url: "https://github.com/EnsieT/KidsFunCursor", pages: "https://ensiet.github.io/KidsFunCursor/" }
-        ]
-      },
-      {
-        name: "GovData & Public Sector Tools",
-        subtitle: "Government data pipelines, interfaces, and spaces tooling.",
-        repositories: [
-          { name: "GovDataChatGPTCodex", description: "Government Data visualization and chat interface.", url: "https://github.com/EnsieT/GovDataChatGPTCodex", pages: "https://ensiet.github.io/GovDataChatGPTCodex/" },
-          { name: "GovDataCodexVSCode", description: "Development framework for GovData components.", url: "https://github.com/EnsieT/GovDataCodexVSCode", pages: "https://ensiet.github.io/GovDataCodexVSCode/" },
-          { name: "GovDataSpacesOpus4.6", description: "Data operations and models for spaces.", url: "https://github.com/EnsieT/GovDataSpacesOpus4.6", pages: "https://ensiet.github.io/GovDataSpacesOpus4.6/" }
-        ]
-      },
-      {
-        name: "Games, Culture & General Projects",
-        subtitle: "Portfolio, knowledge, and utility projects.",
-        repositories: [
-          { name: "ClassicGames", description: "Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more.", url: "https://github.com/EnsieT/ClassicGames", pages: "https://ensiet.github.io/ClassicGames/" },
-          { name: "BeingIndian", description: "EnsieT project workspace.", url: "https://github.com/EnsieT/BeingIndian", pages: "https://ensiet.github.io/BeingIndian/" },
-          { name: "My-Library", description: "Personal book library with 273 books and reviews.", url: "https://github.com/EnsieT/My-Library", pages: "https://ensiet.github.io/My-Library/" },
-          { name: "Rent-a-phone", description: "Rent-a-phone.", url: "https://github.com/EnsieT/Rent-a-phone", pages: "https://ensiet.github.io/Rent-a-phone/" },
-          { name: "SapeinsGrok", description: "Explorations into human evolution and intellect.", url: "https://github.com/EnsieT/SapeinsGrok", pages: "https://ensiet.github.io/SapeinsGrok/" },
-          { name: "Sapiens-Supremacy", description: "Strategic implementation related to Sapiens context.", url: "https://github.com/EnsieT/Sapiens-Supremacy", pages: "https://ensiet.github.io/Sapiens-Supremacy/" }
-        ]
-      }
+    // Category mapping
+    const CATEGORIES = {
+      ai: { label: "AI & Learning", badge: "badge-ai" },
+      kids: { label: "Kids Education", badge: "badge-kids" },
+      games: { label: "Games", badge: "badge-games" },
+      knowledge: { label: "Knowledge & Culture", badge: "badge-knowledge" },
+      utility: { label: "Utilities", badge: "badge-utility" }
+    };
+
+    // List of repositories with categories
+    const repositories = [
+      { name: "AI-Competency-GAS", description: "AI material tracker.", url: "https://github.com/EnsieT/AI-Competency-GAS", pages: "https://ensiet.github.io/AI-Competency-GAS/", category: "ai" },
+      { name: "AI_EDU_ATGOpus4.6", description: "AI Mastery Hub - AI Competency Assessment, Claude Certified Architect prep, Practice Exams, and AI Concepts Explained.", url: "https://github.com/EnsieT/AI_EDU_ATGOpus4.6", pages: "https://ensiet.github.io/AI_EDU_ATGOpus4.6/", category: "ai" },
+      { name: "BeingIndian", description: "EnsieT project workspace.", url: "https://github.com/EnsieT/BeingIndian", pages: "https://ensiet.github.io/BeingIndian/", category: "knowledge" },
+      { name: "ClassicGames", description: "Browser-based arcade hub with classic games like Tetris, Snake, Pong, Minesweeper, Sudoku, Jigsaw, Wordle, and more.", url: "https://github.com/EnsieT/ClassicGames", pages: "https://ensiet.github.io/ClassicGames/", category: "games" },
+      { name: "Git", description: "The central hub repository (You are here).", url: "https://github.com/EnsieT/Git", pages: "https://ensiet.github.io/Git/", category: "utility" },
+      { name: "kids-fun-learn", description: "Kids learning stuff.", url: "https://github.com/EnsieT/kids-fun-learn", pages: "https://ensiet.github.io/kids-fun-learn/", category: "kids" },
+      { name: "kids-fun-learn-antigravity", description: "Advanced experimental builds for Kids Fun Learn.", url: "https://github.com/EnsieT/kids-fun-learn-antigravity", pages: "https://ensiet.github.io/kids-fun-learn-antigravity/", category: "kids" },
+      { name: "KidsEduGAS", description: "Kids Edu created by Google AI studio.", url: "https://github.com/EnsieT/KidsEduGAS", pages: "https://ensiet.github.io/KidsEduGAS/", category: "kids" },
+      { name: "KidsFunCursor", description: "Cursor-driven interactive elements for Kids learning modules.", url: "https://github.com/EnsieT/KidsFunCursor", pages: "https://ensiet.github.io/KidsFunCursor/", category: "kids" },
+      { name: "My-Library", description: "Personal book library with 273 books and reviews.", url: "https://github.com/EnsieT/My-Library", pages: "https://ensiet.github.io/My-Library/", category: "knowledge" },
+      { name: "Rent-a-phone", description: "Rent-a-phone.", url: "https://github.com/EnsieT/Rent-a-phone", pages: "https://ensiet.github.io/Rent-a-phone/", category: "utility" },
+
+      { name: "Sapiens-Supremacy", description: "Strategic implementation related to Sapiens context.", url: "https://github.com/EnsieT/Sapiens-Supremacy", pages: "https://ensiet.github.io/Sapiens-Supremacy/", category: "knowledge" }
     ];
 
-    const sections = document.getElementById('repo-sections');
-    let animationIndex = 0;
+    const grid = document.getElementById('repo-grid');
+    const repoCountEl = document.getElementById('repo-count');
+    const emptyState = document.getElementById('empty-state');
 
-    repositoryCategories.forEach((category) => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'category-block';
+    // Build cards
+    repositories.forEach((repo, i) => {
+      const cat = CATEGORIES[repo.category];
+      const article = document.createElement('article');
+      article.className = 'card';
+      article.dataset.category = repo.category;
+      article.style.animationDelay = `${i * 0.05}s`;
 
-      const heading = document.createElement('h2');
-      heading.className = 'category-title';
-      heading.textContent = category.name;
+      article.innerHTML = `
+        <div class="card-header">
+          <h2 class="card-title">${repo.name.replace(/-/g, ' ')}</h2>
+          <span class="card-badge ${cat.badge}">${cat.label}</span>
+        </div>
+        <p class="card-desc">${repo.description}</p>
+        <div class="card-actions">
+          <a href="${repo.pages}" class="btn" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
+            Live Site
+          </a>
+          <a href="${repo.url}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      `;
+      grid.appendChild(article);
+    });
 
-      const subtitle = document.createElement('p');
-      subtitle.className = 'category-subtitle';
-      subtitle.textContent = category.subtitle;
+    // Filter logic
+    function filterRepos(category) {
+      const cards = grid.querySelectorAll('.card');
+      let visibleCount = 0;
 
-      const grid = document.createElement('div');
-      grid.className = 'grid';
-
-      category.repositories.forEach((repo) => {
-        const article = document.createElement('article');
-        article.className = 'card';
-        article.style.animationDelay = `${animationIndex * 0.05}s`;
-        animationIndex += 1;
-
-        article.innerHTML = `
-          <h3 class="card-title">${repo.name.replace(/-/g, ' ')}</h3>
-          <p class="card-desc">${repo.description}</p>
-          <div class="card-actions">
-            <a href="${repo.pages}" class="btn" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1.8 18H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2v-1.6c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zm0-4H8.2c-.1 0-.2-.1-.2-.2V10c0-.1.1-.2.2-.2h7.6c.1 0 .2.1.2.2v1.6c0 .1-.1.2-.2.2zM13 9V3.5L18.5 9H13z"/></svg>
-              Live Site
-            </a>
-            <a href="${repo.url}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
-          </div>
-        `;
-        grid.appendChild(article);
+      cards.forEach((card, i) => {
+        const show = category === 'all' || card.dataset.category === category;
+        card.classList.toggle('hidden', !show);
+        if (show) {
+          card.style.animationDelay = `${visibleCount * 0.05}s`;
+          card.style.animation = 'none';
+          card.offsetHeight; // trigger reflow
+          card.style.animation = '';
+          visibleCount++;
+        }
       });
 
-      wrapper.appendChild(heading);
-      wrapper.appendChild(subtitle);
-      wrapper.appendChild(grid);
-      sections.appendChild(wrapper);
+      // Update count
+      const total = repositories.length;
+      repoCountEl.innerHTML = category === 'all'
+        ? `Showing <span>${total}</span> repositories`
+        : `Showing <span>${visibleCount}</span> of ${total} repositories`;
+
+      // Empty state
+      emptyState.classList.toggle('visible', visibleCount === 0);
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterRepos(btn.dataset.filter);
+      });
     });
+
+    // Initial count
+    filterRepos('all');
   </script>
 </body>
 </html>
